@@ -3,6 +3,7 @@ from base64 import b64decode
 
 import click
 import boto3
+from botocore.exceptions import ProfileNotFound
 import pkcs11
 
 
@@ -18,10 +19,16 @@ import pkcs11
 def main(instance_id, profile, lib):
     lib = pkcs11.lib(lib)
     token = lib.get_token()
-    boto_session = boto3.Session(profile_name=profile)
+
+    try:
+        boto_session = boto3.Session(profile_name=profile)
+    except ProfileNotFound:
+        click.echo(f'Could not find profile "{profile}"')
+        sys.exit()
+
     client = boto_session.client("ec2")
 
-    response = client.get_password_data(InstanceId=instance_id, DryRun=False,)
+    response = client.get_password_data(InstanceId=instance_id, DryRun=False)
 
     password_data = response["PasswordData"]
 

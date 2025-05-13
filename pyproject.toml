@@ -1,19 +1,11 @@
-[tool.poetry]
+[project]
 name = "ec2-win-pkcs11"
 version = "0.1.0"
 description = ""
-authors = ["Daniel Jones <tortxof@gmail.com>"]
-
-[tool.poetry.dependencies]
-python = "^3.10"
-boto3 = "^1.24.73"
-python-pkcs11 = "^0.7.0"
-click = "^8.1.3"
-
-[tool.poetry.group.dev.dependencies]
-black = "^22.8.0"
-pylint = "^2.15.2"
-
-[build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "boto3>=1.38.14",
+    "click>=8.2.0",
+    "python-pkcs11>=0.7.0",
+]

@@ -1,10 +1,10 @@
 import sys
 from base64 import b64decode
 
-import click
 import boto3
-from botocore.exceptions import ProfileNotFound
+import click
 import pkcs11
+from botocore.exceptions import ProfileNotFound
 
 
 @click.command()

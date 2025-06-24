@@ -40,15 +40,6 @@ wheels = [
 ]
 
 [[package]]
-name = "cached-property"
-version = "2.0.1"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/76/4b/3d870836119dbe9a5e3c9a61af8cc1a8b69d75aea564572e385882d5aefb/cached_property-2.0.1.tar.gz", hash = "sha256:484d617105e3ee0e4f1f58725e72a8ef9e93deee462222dbd51cd91230897641", size = 10574, upload-time = "2024-10-25T15:43:55.667Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/11/0e/7d8225aab3bc1a0f5811f8e1b557aa034ac04bdf641925b30d3caf586b28/cached_property-2.0.1-py3-none-any.whl", hash = "sha256:f617d70ab1100b7bcf6e42228f9ddcb78c676ffa167278d9f730d1c2fba69ccb", size = 7428, upload-time = "2024-10-25T15:43:54.711Z" },
-]
-
-[[package]]
 name = "click"
 version = "8.2.0"
 source = { registry = "https://pypi.org/simple" }
@@ -83,7 +74,7 @@ dependencies = [
 requires-dist = [
     { name = "boto3", specifier = ">=1.38.14" },
     { name = "click", specifier = ">=8.2.0" },
-    { name = "python-pkcs11", specifier = ">=0.7.0" },
+    { name = "python-pkcs11", specifier = ">=0.8.1" },
 ]
 
 [[package]]
@@ -109,13 +100,20 @@ wheels = [
 
 [[package]]
 name = "python-pkcs11"
-version = "0.7.0"
+version = "0.8.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "asn1crypto" },
-    { name = "cached-property" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/3e/24/9d55a78b3501201d2dfeb035ce1b139f8846505b3ddb9cadb4c2254259d0/python-pkcs11-0.7.0.tar.gz", hash = "sha256:9737e0c24cabb8bc9d48bf8c57c3df2a70f8cdd96b70c50290803286f9e46bf7", size = 106517, upload-time = "2020-08-20T23:54:23.205Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/7d/4b/7172d764458d0c05d5f38447a18482139a4ba9d3236e3e92a5c43e0eadcf/python_pkcs11-0.8.1.tar.gz", hash = "sha256:f9e11df146ce2e6359aeb81fa84c2dd7ab9719f707cdae06ceae22d9e6a10818", size = 156019, upload-time = "2025-06-22T06:26:28.043Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b7/83/729faa232b6bf233888d472d176e19693e1fdf204145dcd4b0b4ad959379/python_pkcs11-0.8.1-cp313-cp313-macosx_10_13_universal2.whl", hash = "sha256:affe4427a5277409a8caf43c14743d155968bfd017739e94a72f585527f7507c", size = 499187, upload-time = "2025-06-22T06:26:10.385Z" },
+    { url = "https://files.pythonhosted.org/packages/88/3b/238088442e40054a25bcad99cf37770330417e9ae0b7023dcdae421e8885/python_pkcs11-0.8.1-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:e7d5b94c5e02bd5bb5969715de0b7516ded2309c4f11c68ca6b55cbfd03340c3", size = 1764512, upload-time = "2025-06-22T06:26:11.762Z" },
+    { url = "https://files.pythonhosted.org/packages/1f/cb/688fc9ebc890ac4343c382c2bce828b14fb70505d3593ecc9217b93e5496/python_pkcs11-0.8.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:e4604a71538300d8be7a5fbed58f401bb8147fc558ff1415469637bbc5dbff00", size = 1815263, upload-time = "2025-06-22T06:26:13.254Z" },
+    { url = "https://files.pythonhosted.org/packages/38/34/80fc7fbc33d55551d0eef8479dcf68dfa3eb32b48e61f9eecdbc8bb3ddec/python_pkcs11-0.8.1-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:879ebf0b4921d30299e741d47f9caf726cf73828ba8b1b4767eb3d8e9a5e6e02", size = 1719363, upload-time = "2025-06-22T06:26:14.977Z" },
+    { url = "https://files.pythonhosted.org/packages/e4/83/bb0ecec6fdd4921ebde365b4f95e687f3b0c7b9d97cf416ef590e3d5c62d/python_pkcs11-0.8.1-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:9b982b63d257d694bc0ec32a2ae2b4a628cd50c2a69830d315bd97c2194fc5ce", size = 1798248, upload-time = "2025-06-22T06:26:16.34Z" },
+    { url = "https://files.pythonhosted.org/packages/ee/02/373bf5b6eeaff057265896470016aa6c1850b87955d9fe319060c852dce1/python_pkcs11-0.8.1-cp313-cp313-win_amd64.whl", hash = "sha256:4ba8887c4e5a680b17a2a94afe78ef1c12c49fdb0f7269656025884f57a2baae", size = 248980, upload-time = "2025-06-22T06:26:18.022Z" },
+]
 
 [[package]]
 name = "s3transfer"

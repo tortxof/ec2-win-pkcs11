@@ -3,8 +3,11 @@ package main
 import (
 	"context"
 	"encoding/base64"
+	"errors"
 	"fmt"
 	"os"
+	"path/filepath"
+	"runtime"
 	"strings"
 
 	"github.com/aws/aws-sdk-go-v2/config"
@@ -13,6 +16,24 @@ import (
 	"github.com/urfave/cli/v2"
 	"golang.org/x/term"
 )
+
+func defaultPkcs11LibPath() (string, error) {
+	switch runtime.GOOS {
+	case "linux":
+		return "/usr/lib/x86_64-linux-gnu/opensc-pkcs11.so", nil
+	case "windows":
+		return filepath.Join(
+			`C:\`,
+			"Program Files",
+			"Yubico",
+			"Yubico PIV Tool",
+			"bin",
+			"libykcs11.dll",
+		), nil
+	default:
+		return "", errors.New("platform not supported")
+	}
+}
 
 func main() {
 	app := &cli.App{
@@ -39,7 +60,6 @@ func main() {
 			&cli.StringFlag{
 				Name:    "lib",
 				Aliases: []string{"l"},
-				Value:   "/usr/lib/x86_64-linux-gnu/opensc-pkcs11.so",
 				Usage:   "PKCS#11 library path",
 			},
 		},
@@ -57,6 +77,14 @@ func run(c *cli.Context) error {
 	profile := c.String("profile")
 	tokenSerial := c.String("token")
 	libPath := c.String("lib")
+
+	if libPath == "" {
+		var err error
+		libPath, err = defaultPkcs11LibPath()
+		if err != nil {
+			return err
+		}
+	}
 
 	// Load PKCS#11 library
 	p := pkcs11.New(libPath)

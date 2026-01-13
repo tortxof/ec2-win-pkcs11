@@ -35,12 +35,16 @@ builds:
 
 archives:
   - formats: [tar.gz]
-    name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}'
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
     format_overrides:
       - goos: windows
         formats: [zip]
 
-changelog: {}
+changelog:
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
 
 release:
   footer: |

@@ -208,7 +208,7 @@ func run(c *cli.Context) error {
 
 	// Find the PIV AUTH key
 	template := []*pkcs11.Attribute{
-		pkcs11.NewAttribute(pkcs11.CKA_LABEL, "PIV AUTH key"),
+		pkcs11.NewAttribute(pkcs11.CKA_ID, []byte{0x01}),
 		pkcs11.NewAttribute(pkcs11.CKA_CLASS, pkcs11.CKO_PRIVATE_KEY),
 	}
 
